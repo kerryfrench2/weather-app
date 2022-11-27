@@ -51,10 +51,10 @@ function searchCity(city) {
 function showTemperature(response) {
   console.log(response.data);
   let place = response.data.name;
+  let weatherType = response.data.weather[0].description;
   let temperature = Math.round(response.data.main.temp);
   let humidity = Math.round(response.data.main.humidity);
   let wind = Math.round(response.data.wind.speed);
-  let weatherType = response.data.weather[0].description;
 
   let placeElement = document.querySelector("#place");
   let humidityElement = document.querySelector("#humidity");
