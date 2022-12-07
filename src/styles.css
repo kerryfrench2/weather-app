@@ -56,9 +56,22 @@ form {
 }
 
 .celcius {
-  font-size: 30px;
+  position: relative;
+  top: -15px;
+  font-size: 15px;
 }
 
+.fahrenheit {
+  position: relative;
+  top: -15px;
+  font-size: 15px;
+}
+
+.unit {
+  position: relative;
+  top: -15px;
+  font-size: 15px;
+}
 .city {
   position: relative;
   margin-left: 320px;
@@ -67,6 +80,7 @@ form {
   margin-bottom: 0;
   font-family: "Roboto", sans-serif;
   margin-top: -100px;
+  margin-right: 0;
 }
 
 .day {
