@@ -28,7 +28,7 @@
  
 <div class="weather-app">
     <form id="search-form">
-      <input type="text" placeholder="Enter City Here" id="search-input" />
+      <input type="text" placeholder="Enter City Here" id="search-input" autocomplete="off"/>
       <input type="submit" value="search" />
     </form>
 
@@ -36,11 +36,14 @@
   
 
     <h1>
-      <span id="temperature">23</span>
-      <span class="celcius"><a href="#" id="current-temp-celsius">°C</a></span>
+      <span id="temperature"></span>
+      <span class="celcius">
+        <a href="#" id="current-temp-celsius">°C</a>
+      </span>
       <span class="unit">|</span>
       <span class="fahrenheit"
-        ><a href="#" id="current-temp-fahrenheit">F</a>
+        >
+        <a href="#" id="current-temp-fahrenheit">F</a>
       </span>
       <span class="mainEmoji">⛅</span>
     </h1>

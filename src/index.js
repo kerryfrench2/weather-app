@@ -61,6 +61,7 @@ function showTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let windElement = document.querySelector("#windSpeed");
   let weatherTypeElement = document.querySelector("#description");
+  let iconElement = document.querySelector("#mainEmoji");
 
   placeElement.innerHTML = `${place}`;
   temperatureElement.innerHTML = `${temperature}`;
@@ -68,6 +69,7 @@ function showTemperature(response) {
   humidityElement.innerHTML = `${humidity}`;
   windElement.innerHTML = `${wind}`;
   weatherTypeElement.innerHTML = `${description}`;
+  iconElement.innerHTML = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
 }
 
 function exactLocation(position) {
@@ -92,3 +94,13 @@ function getCurrentPosition(event) {
 
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentPosition);
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (14 * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = math.round(fahrenheitTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#current-temp-fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
