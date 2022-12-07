@@ -25,109 +25,8 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
-    <style>
-      body {
-        background: radial-gradient(
-          circle at 10% 20%,
-          rgba(216, 241, 230, 0.46) 0.1%,
-          rgba(233, 226, 226, 0.28) 90.1%
-        );
-        border: solid #dde4ef;
-        margin: 100px;
-        margin-top: 50px;
-        border-radius: 10px;
-      }
-
-      form {
-        margin-top: 10px;
-        text-align: center;
-        margin-bottom: 10px  ;
-      }
-
-      .col {
-        font-size: 50px;
-        border: none #dde4ef;
-        border-radius: 20px;
-        text-align: center;
-        margin-bottom: 40px;
-        margin-top: 20px;
-        padding: 5px;
-      }
-
-      .col:hover {
-        background: #dde4ef;
-        font-size: 50px;
-        border: solid #dde4ef;
-        border-radius: 20px;
-        text-align: center;
-        margin-bottom: 40px;
-        margin-top: 20px;
-        padding: 5px;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-        transition: ease-in-out 200ms;
-      }
-
-      .temperature {
-        position: relative;
-        margin-top: 50px;
-        font-size: 60px;
-
-        margin-left: 30px;
-
-        font-family: "Roboto", sans-serif;
-      }
-
-      .celcius {
-        font-size: 30px;
-      }
-
-      .city {
-        position: relative;
-        margin-left: 320px;
-        font-size: 80px;
-        font-weight: bold;
-        margin-bottom: 0;
-        font-family: "Roboto", sans-serif;
-        margin-top: -100px;
-      }
-
-      .day {
-        position: relative;
-        margin-left: 325px;
-        margin-top: 0;
-        font-weight: lighter;
-        font-family: "Roboto", sans-serif;
-      }
-
-      .time {
-        font-size: 18px;
-      }
-
-      .container {
-        margin-top: 10px;
-        line-height: 1;
-      }
-      .dayOfWeek {
-        font-size: 20px;
-        font-weight: bold;
-      }
-
-      .dayTemp {
-        font-size: 15px;
-      }
-
-      .mainEmoji {
-        font-size: 90px;
-      }
-
-      .locationButton {
-        display: block;
-        margin: 0 auto;
-        margin-top: 5px;
-        border-radius: 5px;
-      }
-    </style>
-
+ 
+<div class="weather-app">
     <form id="search-form">
       <input type="text" placeholder="Enter City Here" id="search-input" />
       <input type="submit" value="search" />
@@ -200,7 +99,7 @@
           <span class="dayOfWeek">Saturday</span>
         </div>
       </div>
-    </div>
+    </div></div>
     <h4>
 <a 
 class="openSource"
