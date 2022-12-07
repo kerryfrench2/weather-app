@@ -4,20 +4,22 @@ body {
     rgba(216, 241, 230, 0.46) 0.1%,
     rgba(233, 226, 226, 0.28) 90.1%
   );
+}
+
+.weather-app {
   border: solid #dde4ef;
   margin: 100px;
   margin-top: 50px;
   border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 form {
   margin-top: 10px;
-  margin-bottom: 40px;
   text-align: center;
-}
-
-button {
-  margin-left: 1000px;
+  margin-bottom: 10px;
 }
 
 .col {
@@ -53,29 +55,32 @@ button {
   font-family: "Roboto", sans-serif;
 }
 
+.celcius {
+  font-size: 30px;
+}
+
 .city {
   position: relative;
-  margin-left: 300px;
+  margin-left: 320px;
   font-size: 80px;
   font-weight: bold;
   margin-bottom: 0;
   font-family: "Roboto", sans-serif;
-  margin-top: 300px;
+  margin-top: -100px;
 }
 
 .day {
   position: relative;
-  margin-left: 300px;
+  margin-left: 325px;
   margin-top: 0;
   font-weight: lighter;
   font-family: "Roboto", sans-serif;
 }
-#current-temp-celsius {
-  font-size: 25px;
+
+.time {
+  font-size: 18px;
 }
-#current-temp-fahrenheit {
-  font-size: 25px;
-}
+
 .container {
   margin-top: 10px;
   line-height: 1;
@@ -91,4 +96,16 @@ button {
 
 .mainEmoji {
   font-size: 90px;
+}
+
+.locationButton {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.opensource {
+  display: block;
+  margin: 0 auto;
 }
