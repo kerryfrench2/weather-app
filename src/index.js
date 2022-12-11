@@ -56,20 +56,26 @@ function showTemperature(response) {
   let humidity = Math.round(response.data.main.humidity);
   let wind = Math.round(response.data.wind.speed);
 
+  celsiusTemp = response.data.main.temp;
+
   let placeElement = document.querySelector("#place");
   let humidityElement = document.querySelector("#humidity");
   let temperatureElement = document.querySelector("#temperature");
   let windElement = document.querySelector("#windSpeed");
   let weatherTypeElement = document.querySelector("#description");
-  let iconElement = document.querySelector("#mainEmoji");
+  let iconElement = document.querySelector(".mainEmoji");
 
   placeElement.innerHTML = `${place}`;
   temperatureElement.innerHTML = `${temperature}`;
 
   humidityElement.innerHTML = `${humidity}`;
   windElement.innerHTML = `${wind}`;
-  weatherTypeElement.innerHTML = `${description}`;
-  iconElement.innerHTML = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+  weatherTypeElement.innerHTML = `${weatherType}`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function exactLocation(position) {
@@ -97,10 +103,11 @@ button.addEventListener("click", getCurrentPosition);
 
 function showFahrenheitTemp(event) {
   event.preventDefault();
-  let fahrenheitTemperature = (14 * 9) / 5 + 32;
+  let fahrenheitTemperature = (celsiusTemp * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = math.round(fahrenheitTemperature);
 }
 
+let celsiusTemp = null;
 let fahrenheitLink = document.querySelector("#current-temp-fahrenheit");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
