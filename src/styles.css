@@ -75,12 +75,13 @@ form {
 .city {
   position: relative;
   margin-left: 320px;
-  font-size: 80px;
+  font-size: 55px;
   font-weight: bold;
   margin-bottom: 0;
   font-family: "Roboto", sans-serif;
   margin-top: -100px;
   margin-right: 0;
+  max-width: 100px;
 }
 
 .day {
