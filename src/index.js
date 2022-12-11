@@ -108,6 +108,18 @@ function showFahrenheitTemp(event) {
   temperatureElement.innerHTML = math.round(fahrenheitTemperature);
 }
 
+function showCelciusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = math.round(celsiusTemp);
+}
+
 let celsiusTemp = null;
+
 let fahrenheitLink = document.querySelector("#current-temp-fahrenheit");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#current-temp-celsius");
+celciusLink.addEventListener("click", showCelciusTemp);
+
+search("#place");
