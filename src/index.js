@@ -48,7 +48,8 @@ function searchCity(city) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-function displayForecast(response.data);
+function displayForecast(response);
+console.log(response.data.daily);
 let forecastElement = document.querySelector("#forecast");
 
 function getForecast(coordinates);
