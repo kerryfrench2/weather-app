@@ -48,6 +48,15 @@ function searchCity(city) {
   axios.get(apiUrl).then(showTemperature);
 }
 
+function displayForecast(response.data);
+let forecastElement = document.querySelector("#forecast");
+
+function getForecast(coordinates);
+console.log(coordinates);
+ let apiKey = "5f69166c92682e1352557cb04dbaf817"; 
+let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForecast)
+
 function showTemperature(response) {
   console.log(response.data);
   let place = response.data.name;
@@ -76,6 +85,9 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+getForecast(response.data.coord);
+
 }
 
 function exactLocation(position) {
