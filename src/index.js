@@ -48,61 +48,34 @@ function searchCity(city) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-function displayForecast(response); {
-console.log(response.data.daily);
-let forecastElement = document.querySelector("#forecast");
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
 }
 
-forecastElement.innerHTML = "Forecast";
-`
-  <div class="container">
-      <div class="row">
-        <div class="col">
-          ⛅ <br />
-          <span class="dayTemp">19°C</span>
-          <br />
-          <span class="dayOfWeek">Monday</span>
-        </div>
-        <div class="col">
-          ☁
-          <br />
-          <span class="dayTemp">17°C</span>
-          <br />
-          <span class="dayOfWeek">Tuesday</span>
-        </div>
-        <div class="col">
-          🌧 <br />
-          <span class="dayTemp">19°C</span>
-          <br />
-          <span class="dayOfWeek">Wednesday</span>
-        </div>
-        <div class="col">
-          ⛅
-          <br />
-          <span class="dayTemp">21°C</span>
-          <br />
-          <span class="dayOfWeek">Thurday</span>
-        </div>
-        <div class="col">
-          ⛅
-          <br />
-          <span class="dayTemp">15°C</span>
-          <br />
-          <span class="dayOfWeek">Friday</span>
-        </div>
-        <div class="col">
-          🌧
-          <br />
-          <span class="dayTemp">18°C</span>
-          <br />
-          <span class="dayOfWeek">Saturday</span>
-        </div>
-      </div>
-    </div>
-  </div>
-`;
-
-
+let forecastHTML = `<div class = "row">`;
+forecast.forEach(function (forecastDay, index) {
+  if (index < 6) {
+    forecastHTML =
+      forecastHTML +
+      `         <div class = "col-2">
+                <div class = "weather-forecast-day">${formatDay(
+                  forecastDay.time
+                )}</div> 
+                <img src = "${forecastDay.condition.icon_url}" width="60"/>
+                <div class = "weather-forecast-temperature">
+                <span class = "weather-forecast-temperature-max">${Math.round(
+                  forecastDay.temperature.maximum
+                )}°</span>
+                <span class = "weather-forecast-temperature-min">${Math.round(
+                  forecastDay.temperature.minimum
+                )}°</span>
+                </div>
+                </div> `;
+  }
+});
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
 
 function getForecast(coordinates) {
   console.log(coordinates);
@@ -140,8 +113,7 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-getForecast(response.data.coord);
-
+  getForecast(response.data.coord);
 }
 
 function exactLocation(position) {
@@ -182,13 +154,11 @@ function showCelsiusTemp(event) {
 
 let celsiusTemp = null;
 
-
-
 let fahrenheitLink = document.querySelector("#current-temp-fahrenheit");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#current-temp-celsius");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
-search("#place");
+searchity("London");
 displayForecast();
