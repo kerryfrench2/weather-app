@@ -48,15 +48,68 @@ function searchCity(city) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-function displayForecast(response);
+function displayForecast(response); {
 console.log(response.data.daily);
 let forecastElement = document.querySelector("#forecast");
+}
 
-function getForecast(coordinates);
-console.log(coordinates);
- let apiKey = "5f69166c92682e1352557cb04dbaf817"; 
-let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayForecast)
+forecastElement.innerHTML = "Forecast";
+`
+  <div class="container">
+      <div class="row">
+        <div class="col">
+          ⛅ <br />
+          <span class="dayTemp">19°C</span>
+          <br />
+          <span class="dayOfWeek">Monday</span>
+        </div>
+        <div class="col">
+          ☁
+          <br />
+          <span class="dayTemp">17°C</span>
+          <br />
+          <span class="dayOfWeek">Tuesday</span>
+        </div>
+        <div class="col">
+          🌧 <br />
+          <span class="dayTemp">19°C</span>
+          <br />
+          <span class="dayOfWeek">Wednesday</span>
+        </div>
+        <div class="col">
+          ⛅
+          <br />
+          <span class="dayTemp">21°C</span>
+          <br />
+          <span class="dayOfWeek">Thurday</span>
+        </div>
+        <div class="col">
+          ⛅
+          <br />
+          <span class="dayTemp">15°C</span>
+          <br />
+          <span class="dayOfWeek">Friday</span>
+        </div>
+        <div class="col">
+          🌧
+          <br />
+          <span class="dayTemp">18°C</span>
+          <br />
+          <span class="dayOfWeek">Saturday</span>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
+
+
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "de2c40e370d58e257faf07ba4ea95840";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showTemperature(response) {
   console.log(response.data);
@@ -129,10 +182,13 @@ function showCelsiusTemp(event) {
 
 let celsiusTemp = null;
 
+
+
 let fahrenheitLink = document.querySelector("#current-temp-fahrenheit");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#current-temp-celsius");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
-search("#place");
+searchCity("London");
+displayForecast();
