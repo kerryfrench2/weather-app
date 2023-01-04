@@ -49,33 +49,40 @@ function searchCity(city) {
 }
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
+  console.log(response);
   console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
-}
 
-let forecastHTML = `<div class = "row">`;
-forecast.forEach(function (forecastDay, index) {
-  if (index < 6) {
-    forecastHTML =
-      forecastHTML +
-      `         <div class = "col-2">
-                <div class = "weather-forecast-day">${formatDay(
-                  forecastDay.time
-                )}</div> 
-                <img src = "${forecastDay.condition.icon_url}" width="60"/>
+  let forecastHTML = `<div class = "row">`;
+  forecast.forEach(function (forecastDay, index) {
+    console.log(forecastDay);
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `         <div class = "col-2">
+                
+                <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"
+        />
                 <div class = "weather-forecast-temperature">
                 <span class = "weather-forecast-temperature-max">${Math.round(
-                  forecastDay.temperature.maximum
+                  forecastDay.temp.max
                 )}°</span>
                 <span class = "weather-forecast-temperature-min">${Math.round(
-                  forecastDay.temperature.minimum
+                  forecastDay.temp.min
                 )}°</span>
                 </div>
                 </div> `;
-  }
-});
-forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function getForecast(coordinates) {
   console.log(coordinates);
@@ -160,5 +167,4 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 let celsiusLink = document.querySelector("#current-temp-celsius");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
-searchity("London");
-displayForecast();
+searchCity("London");
